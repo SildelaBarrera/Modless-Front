@@ -1,8 +1,9 @@
-import { Component, ElementRef, ViewChild, AfterViewInit  } from '@angular/core';
-
+import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+// import { RouterOutlet } from '@angular/router';
+import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-home',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -19,6 +20,8 @@ export class HomeComponent implements AfterViewInit {
       navbarElement.classList.remove('bg-transparent'); // Quitar fondo transparente
       navbarElement.classList.add('bg-white'); // Añadir fondo blanco
       navbarElement.classList.add('navbar-light'); // Cambiar texto a oscuro
+      navbarElement.classList.add('dropdown-item-light'); // Cambiar texto a oscuro
+      navbarElement.classList.remove('dropdown-item-dark'); //Quitar texto claro
       navbarElement.classList.remove('navbar-dark'); //Quitar texto claro
        
     });
@@ -29,6 +32,8 @@ export class HomeComponent implements AfterViewInit {
       navbarElement.classList.add('bg-transparent'); // Añadir fondo transparente
       navbarElement.classList.remove('navbar-light'); // Quitar texto oscuro
       navbarElement.classList.add('navbar-dark'); // Añadir texto claro
+      // navbarElement.classList.add('dropdown-menu-dark'); //Quitar texto claro
+      // navbarElement.classList.remove('dropdown-menu-light'); //Quitar texto claro
       
     });
   }

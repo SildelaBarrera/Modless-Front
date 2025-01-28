@@ -1,7 +1,10 @@
 export class Product {
 
-    constructor(public title: string, public category: string, public description: string, 
-        public color: string, public material: string, public talla: number, public price: number,  
-        public unidades: number,  public images: string, public id_prodcut: number = 0){ 
+    constructor(public title: string, public price: number, public image: string,
+        // public description: string, 
+        // public color: string, public material: string, public talla: number, public category: string,  
+        // public unidades: number, 
+        public id_product: number = 0
+    ){ 
     }
 }

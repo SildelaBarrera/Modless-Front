@@ -1,0 +1,7 @@
+<div *ngIf="product">
+    <h1>{{ product.title }}</h1>
+    <img [src]="product.image" alt="{{ product.title }}" style="max-width: 100%;">
+    <p>Price: ${{ product.price }}</p>
+    <p>ID: {{ product.id_product }}</p>
+    <a routerLink="/" class="btn btn-secondary">Volver a la lista</a>
+  </div>
