@@ -20,7 +20,7 @@ export class HomeComponent implements AfterViewInit {
       navbarElement.classList.add('bg-white'); // Añadir fondo blanco
       navbarElement.classList.add('navbar-light'); // Cambiar texto a oscuro
       navbarElement.classList.remove('navbar-dark'); //Quitar texto claro
-      navbarElement.classList.add('btn border-0'); 
+       
     });
 
     // Detectar el evento "hide.bs.collapse" (cuando se cierra el menú)
@@ -29,7 +29,7 @@ export class HomeComponent implements AfterViewInit {
       navbarElement.classList.add('bg-transparent'); // Añadir fondo transparente
       navbarElement.classList.remove('navbar-light'); // Quitar texto oscuro
       navbarElement.classList.add('navbar-dark'); // Añadir texto claro
-      navbarElement.classList.add('btn border-0');
+      
     });
   }
 }

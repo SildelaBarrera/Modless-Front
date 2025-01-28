@@ -1,5 +1,5 @@
 .header{
-    height: 4vh;
+    height: 5vh;
     width: 100%;
     background-color: black;
     display: flex;
@@ -7,7 +7,26 @@
     align-items: center;
 }
 .text{
+    height: 3vh;
+    /* border: green 2px solid; */
+    display: flex;
+    
+    justify-content: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+}
+h6{
+    /* border: red solid 2px; */
+    margin-bottom: -px;
     color:white;
+    font-size: small;
+    font-family: "Montserrat", serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+    
+    
 }
 .cart{
     color: white;
