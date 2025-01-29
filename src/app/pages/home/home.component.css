@@ -1,9 +1,8 @@
 
 .landing-page{
     border: blue 3px solid;
-    height: 92vh;
+    height: 96vh;
     width: 100vw;
-    position: fixed;
     top: 29px;
     left: 0px;
     display: flex;
@@ -15,40 +14,8 @@
     font-family: "Montserrat", serif;
     font-optical-sizing: auto;
     font-weight: weight;
-    font-style: normal;
-    
-    
+    font-style: normal; 
 }
-.navbar{
-    border:green solid 2px;
-    height: 92vh;
-    width: 15vw;
-    display: flex;
-    align-items: start;
-    justify-content: start;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    /* transition: background-color 0.3s ease; */
-}
-.container-fluid{
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: start;    
-}
-.navbar-toggler{
-    height: 70px;
-    width: 70px;
-    transition: none;
-    box-shadow: none;
-    border: none;
-} 
-.dropdown-menu{
-    background-color: transparent;
-    box-shadow: none;
-    border: none;
-} 
 
 .logo{
     height: 50px;

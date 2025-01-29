@@ -1,0 +1,29 @@
+.contenedor{
+    border: blue 3px solid;
+    height: 96vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Montserrat", serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal; 
+}
+.products{
+    border: rgb(65, 50, 164) 2px solid;
+    margin: 20px;
+    height: 55%;
+    width: 300px;
+
+}
+.card{ 
+    border: red solid 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.photo{
+    height: 80%;
+    border: green 2px solid;
+}

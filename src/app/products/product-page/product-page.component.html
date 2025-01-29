@@ -1,7 +1,65 @@
-<div *ngIf="product">
-    <h1>{{ product.title }}</h1>
-    <img [src]="product.image" alt="{{ product.title }}" style="max-width: 100%;">
-    <p>Price: ${{ product.price }}</p>
-    <p>ID: {{ product.id_product }}</p>
-    <a routerLink="/" class="btn btn-secondary">Volver a la lista</a>
-  </div>
+<div class="contenedor" *ngIf="product">
+    
+    <div class="logotipo">
+      <img class= "logo" src="/logotipo.png">
+    </div>
+    <div class="product">
+      <!-- Columna para la imagen principal -->
+        <div class="principal col-md-6">
+          <img [src]="selectedImage" alt="{{ product.title }}" class="img-principal img-fluid">
+        </div>
+  
+      <!-- Columna para el detalles y miniaturas -->
+        <div class="details col-md-6">
+          
+        <!-- Miniaturas -->
+          <div class="images">
+            <div
+              class="photo m-2 rounded shadow-sm"
+              *ngFor="let image of product.images"
+              (click)="selectImage(image)"
+              [ngClass]="{'border-primary': selectedImage === image}"
+              style="cursor: pointer;"
+              >
+              <img [src]="image" alt="Miniatura" class="img-thumbnail" style="width: 80px; height: 110px;">
+            </div>
+          </div>
+          <!-- Detalles -->
+           <div class="properties">
+            <h1 class="title mb-3">{{ product.title }}</h1>
+            <h3 class="mb-3">Precio: ${{ product.price }}</h3>
+            <p>Selecciona un color:</p>
+            <div *ngIf="product.colors?.length > 0; else noColors">
+              <div *ngFor="let color of product.colors" class="color-option"
+                   [style.background]="color"
+                   [class.selected]="color === selectedColor"
+                   (click)="selectColor(color)">
+              </div>
+            </div>
+            <ng-template #noColors>
+              <p>No hay colores disponibles.</p>
+            </ng-template>
+            <p>Selecciona una talla:</p>
+            <div class="mb-3">
+              <label for="size" class="form-label">Talla:</label>
+              <select *ngIf="product.sizes?.length > 0; else noSizes" [(ngModel)]="selectedSize">
+                <option *ngFor="let size of product.sizes" [value]="size">{{ size }}</option>
+              </select>
+              <ng-template #noSizes>
+                <p>No hay tallas disponibles.</p>
+              </ng-template>
+            </div>
+              <!-- Botón para añadir al carrito -->
+            <button class="btn btn-primary" (click)="addToCart()">Añadir al carrito</button>
+
+            <!-- Mensaje de éxito -->
+            <div *ngIf="addedToCart" class="alert alert-success mt-3">
+              ¡Producto añadido al carrito!
+            </div>
+          </div>
+        
+      </div>
+    </div>
+    <!-- Botón para volver -->
+    <a routerLink="/products" class="btn btn-secondary mt-3">Volver a la lista</a>
+</div>
