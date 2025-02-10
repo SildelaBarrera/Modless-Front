@@ -1,10 +1,12 @@
 .contenedor{
     border: blue 3px solid;
-    height: 96vh;
-    width: 100%;
+    height: fit-content;
+    width: 75%;
+    margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     font-family: "Montserrat", serif;
     font-optical-sizing: auto;
     font-weight: weight;

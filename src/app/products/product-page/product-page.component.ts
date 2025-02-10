@@ -4,6 +4,7 @@ import { ProductsService } from '../service/products.service';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { CartService } from '../../cart/service/cart.service';
+import { CartItem } from '../../cart/model';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -17,6 +18,8 @@ export class ProductPageComponent implements OnInit {
   selectedImage: string = '';
   selectedColor: string = '';
   selectedSize: string = '';
+  selectedQuantity: number = 1;
+  message: string = '';
   addedToCart = false;
  
   constructor(
@@ -39,22 +42,43 @@ export class ProductPageComponent implements OnInit {
     }
   }
   selectImage(image: string): void {
-    this.selectedImage = image;
-    
+    this.selectedImage = image; 
   }
   selectColor(color: string) {
     this.selectedColor = color;
   }
-
-  addToCart() {
-    const productToAdd = {
-      ...this.product,
-      selectedColor: this.selectedColor,
-      selectedSize: this.selectedSize
-    };
-    this.cartService.addToCart(productToAdd);
-    this.addedToCart = true;
-
-    setTimeout(() => this.addedToCart = false, 3000); // Oculta el mensaje tras 3 segundos
+  increaseQuantity(): void {
+    this.selectedQuantity++;
+    
+  }
+  decreaseQuantity(): void {
+    if (this.selectedQuantity > 1) {
+      this.selectedQuantity--;
+    }
+  }
+  addToCart(): void {
+    
+      if (!this.product) {
+        this.message = '⚠️ Error al obtener los datos del producto';
+        setTimeout(() => this.message = '', 3000);
+        return;
+      }
+      const cartItem: CartItem = {
+        ...this.product,
+        quantity: this.selectedQuantity  // ✅ Agregar la cantidad
+      };
+    
+      this.cartService.addToCart(cartItem);
+    
+      // ✅ Mostrar advertencia si supera el stock
+      if (this.selectedQuantity > this.product.stock) {
+        this.message = (this.selectedQuantity - this.product.stock) + ' unidad/es tardará más en llegar debido a stock limitado.'
+        + 'n/ ✅ Producto añadido al carrito';
+      } else {
+        this.message = '✅ Producto añadido al carrito';
+      }
+    
+      // ⏳ Ocultar mensaje después de 3 segundos
+      setTimeout(() => this.message = '', 4000);
   }
 }

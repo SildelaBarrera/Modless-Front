@@ -77,3 +77,9 @@ height: 450px;
     transform: scale(1.1); /* Ampliar al pasar el ratón */
     transition: transform 0.2s;
   }
+  .success-message {
+    margin-top: 10px;
+    color: rgb(39, 39, 39);
+    animation: fadeInOut 3s ease-in-out;
+  }
+  
