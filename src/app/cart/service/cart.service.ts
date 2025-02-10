@@ -47,20 +47,24 @@ export class CartService {
     return this.cartItems.some(item => item.quantity > item.stock);
   }
   increaseQuantity(productId: number): void {
-    const item = this.cartItems.find(p => p.id_product === productId);
-    if (item && item.quantity < item.stock) {
-      item.quantity++;
+    const item = this.cartItems.find(product => product.id_product === productId);
+    if (item) {
+      if (item.quantity < item.stock) {
+        item.quantity++;
+        item.exceededStock = false;
+      } else {
+        item.exceededStock = true;
+      }
       this.updateCart();
     }
-  }
+}
 
   decreaseQuantity(productId: number): void {
     const item = this.cartItems.find(p => p.id_product === productId);
     if (item && item.quantity > 1) {
       item.quantity--;
+      item.exceededStock = false;
       this.updateCart();
-    } else {
-      this.removeFromCart(item!);
     }
   }
 

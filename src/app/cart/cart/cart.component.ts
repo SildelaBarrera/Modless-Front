@@ -12,6 +12,7 @@ import { RouterLink } from '@angular/router';
 })
 export class CartComponent implements OnInit {
   
+  isCartOpen = false;
   cartItems: CartItem[] = [];
   total: number = 0;
   totalQuantity: number = 0;
@@ -35,6 +36,9 @@ export class CartComponent implements OnInit {
     });
   }
 
+  toggleCart() {
+    this.isCartOpen = !this.isCartOpen;
+  }
   increaseQuantity(productId: number): void {
     this.cartService.increaseQuantity(productId);
   }

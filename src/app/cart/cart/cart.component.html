@@ -23,8 +23,8 @@
         <span>{{ item.quantity }}</span>
         <button (click)="increaseQuantity(item.id_product)">➕</button>
       </div>
-      <p *ngIf="showStockWarning" class="alert-message warning">
-        Algunas unidades tardarán más en llegar debido a stock limitado.;
+      <p *ngIf="item.exceededStock" class="alert-message warning">
+        Algunas unidades tardarán más en llegar debido a stock limitado.
       </p>
       <p class="subtotal">Subtotal: ${{ (item.price * item.quantity).toFixed(2) }}</p>
 
