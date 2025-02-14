@@ -1,16 +1,25 @@
 .footer {
-    height: 5vh;
+    height: 15vh;
     width: 100%;
-    background-color: black;
+    background-color: rgb(27, 27, 27);
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
     z-index: 10;
-    position: fixed;
+    position: relative;
     bottom: 0;
     left: 0;
     color: #fff;
     text-align: center;
     padding: 10px;
      /* Asegúrate de que esté por encima de otros elementos */
+  }
+  .footer-categories{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  ul{
+    margin-right: 35px;
   }

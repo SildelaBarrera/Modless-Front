@@ -1,4 +1,4 @@
-       <nav #navbar class="navbar navbar-dark bg-transparent">
+       <nav #navbar class="navbar navbar-dark bg-transparent" >
             <div class="container">
                 <button
                     class="navbar-toggler"
@@ -14,15 +14,22 @@
                 <div  #collapse class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
+                            <a class="nav-link" href="#" [routerLink]="['/products']">NUEVA COLECCIÓN
+                                </a>
+                        </li>
+                        <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 TIENDA
                             </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item dropdown-item-dark" routerLink="/products">Pantalones y faldas</a></li>
-                                <li><a class="dropdown-item" href="#">Camisetas y tops</a></li>
-                                <li><a class="dropdown-item" href="#">Vestidos</a></li>
-                                <li><a class="dropdown-item" href="#">Total look</a></li>
-                                <li><a class="dropdown-item" href="#">Accesorios</a></li>
+                            <ul class="dropdown-menu" data-bs-auto-close>
+                                <li *ngFor="let category of categories">
+                                    <a class="dropdown-item"
+                                       [routerLink]="['/products']"
+                                       [queryParams]="{ category: category }"
+                                       >
+                                      {{ category }}
+                                    </a>
+                                  </li>
                             </ul>
                         </li>
                         <li class="nav-item">

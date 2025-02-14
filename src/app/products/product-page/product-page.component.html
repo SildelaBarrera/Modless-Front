@@ -6,7 +6,7 @@
     <div class="product">
       <!-- Columna para la imagen principal -->
         <div class="principal col-md-6">
-          <img [src]="selectedImage" alt="{{ product.name }}" class="img-principal img-fluid">
+          <img [src]="selectedImage" alt="{{ product?.name }}" class="img-principal img-fluid">
         </div>
   
       <!-- Columna para el detalles y miniaturas -->
@@ -28,13 +28,24 @@
            <div class="properties">
             <h1 class="title mb-3">{{ product.name }}</h1>
             <h3 class="mb-3">Precio: {{ product.price }} €</h3>
-            <p>Selecciona un color:</p>
-            <select *ngIf="product.colors?.length > 0; else noColors">
-              <option *ngFor="let color of product.colors" class="color-option" [value]="color">{{ color }}</option>
-            </select>
-            <ng-template #noColors>
-              <p>No hay colores disponibles.</p>
-            </ng-template>
+            <div class="product-detail-container">
+              <h1>{{ product?.name }}</h1>
+              <!-- Otros detalles del producto aquí -->
+            
+              <!-- Sección de selección de color -->
+              <div class="color-selector" *ngIf="colors.length">
+                <p>Seleccione el color:</p>
+                <div class="color-options">
+                  <label *ngFor="let color of colors"
+                         class="color-option"
+                         [class.selected]="color === selectedColor">
+                    <!-- Input oculto para el binding -->
+                    <input type="radio" name="color" [value]="color" [(ngModel)]="selectedColor" hidden>
+                    <div class="color-circle" [style.backgroundColor]="color"></div>
+                  </label>
+                </div>
+              </div>
+            
             <p>Selecciona una talla:</p>
             <div class="mb-3">
               <select *ngIf="product.sizes?.length > 0; else noSizes" [(ngModel)]="selectedSize">
@@ -49,9 +60,9 @@
 
             <!-- Selección de cantidad -->
             <div class="quantity">
-              <button (click)="decreaseQuantity()">➖</button>
-              <input type="number" [(ngModel)]="selectedQuantity" min="1" [max]="product.stock">
-              <button (click)="increaseQuantity()">➕</button>
+              <button  class="btn btn-secondary"(click)="decreaseQuantity()">➖</button>
+              <input [(ngModel)]="selectedQuantity" min="1">
+              <button  class="btn btn-secondary"(click)="increaseQuantity()">➕</button>
             </div>
 
               <!-- Botón para añadir al carrito -->

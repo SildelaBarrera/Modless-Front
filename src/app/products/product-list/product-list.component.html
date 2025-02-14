@@ -1,16 +1,32 @@
-<div class="contenedor">
-        <!-- Itera sobre los productos -->
-        <div class="products" *ngFor="let product of products">
-            <div class="card">
-                <button [routerLink]="['/product', product.id_product]">
-                    <img [src]="product.images[0]" class="photo card-img-top" alt="{{ product.name }}">
-                </button>
-                <div class="card-body">
-                    <h5 class="card-title">{{ product.name }}</h5>
-                </div>
-                <div class="card-footer">
-                    <p class="text-muted"><strong>Precio:</strong>{{ product.price }} €</p>
-                </div>
-            </div>
-        </div>
+<div class="product-list-container">
+  <div class="product-list-brand">
+    <img>
+    <img class="logo">
+  </div>
+  <h1 class="product-list-title">Catálogo de Productos</h1>
+  <div class="product-grid">
+    <div class="product-card" *ngFor="let product of filteredProducts">
+      <a [routerLink]="['/product', product.id_product]">
+      <div class="image-wrapper">
+        <img [src]="product.image_main" [alt]="product.name">
+      </div>
+      </a>
+      <div class="product-details">
+        <h3>{{ product.name }}</h3> 
+        <span class="price">{{ product.price}} €</span>
+        <p>dsgs sdfsdf sfsdvdvdvdsv sdfsd</p> 
+      </div>
+    </div>
+  </div>
 </div>
+
+<!-- <div *ngIf="error" class="error">
+  <p>{{ error }}</p>
+</div>
+
+<div *ngIf="!error">
+  <div *ngFor="let product of products">
+    <p>{{ product.name }} - ${{ product.price }}</p>
+    <p>Color: {{ product.colors }}</p>
+  </div>
+</div> -->

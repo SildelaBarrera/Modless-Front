@@ -5,10 +5,15 @@ import { Product } from '../model/product';
   providedIn: 'root'
 })
 export class ProductsService {
-private products = [{id_product: 1, stock: 3, name: "Vestido elegante", price: 20, colors: ["#007BFF", "#DC3545", "#28A745"], sizes: ["S", "M", "L", "XL"] , images: ['https://images.pexels.com/photos/2173357/pexels-photo-2173357.jpeg','https://images.pexels.com/photos/29734037/pexels-photo-29734037/free-photo-of-hermosa-mujer-morena-modelando-cuello-alto-clutch-y-pantalones.jpeg', 'https://images.pexels.com/photos/11288126/pexels-photo-11288126.jpeg', 'https://images.pexels.com/photos/30366141/pexels-photo-30366141/free-photo-of-elegante-retrato-de-moda-en-el-interior-de-marrakech.jpeg' ]},
-{id_product: 2, stock: 3, name: "Conjunto", price: 40, colors: ["Amarillo", "Verde", "Azul"], sizes: ["S", "M", "L", "XL"] , images: ['https://images.pexels.com/photos/7778880/pexels-photo-7778880.jpeg', 'https://images.pexels.com/photos/15576188/pexels-photo-15576188/free-photo-of-moda-mujer-en-pie-de-pie.jpeg', 'https://images.pexels.com/photos/7760026/pexels-photo-7760026.jpeg', 'https://images.pexels.com/photos/16048094/pexels-photo-16048094/free-photo-of-moda-gafas-de-sol-mujer-modelo.jpeg']},
-{id_product: 3, stock: 3, name: "Vestido amarillo", price: 40,  colors: ["#007BFF", "#DC3545", "#28A745"], sizes: ["S", "M", "L", "XL"] , images: ['https://images.pexels.com/photos/1936854/pexels-photo-1936854.jpeg','https://images.pexels.com/photos/15146363/pexels-photo-15146363/free-photo-of-moda-mujer-modelo-maqueta.jpeg', 'https://images.pexels.com/photos/10760395/pexels-photo-10760395.jpeg','https://images.pexels.com/photos/19970756/pexels-photo-19970756/free-photo-of-fotografia-de-estudio-de-una-mujer-joven-con-un-traje-negro-de-moda.jpeg' ]},
-{id_product: 4, stock: 3, name: "Traje", price: 40,  colors: ["#007BFF", "#DC3545", "#28A745"], sizes: ["S", "M", "L", "XL"] , images: ['https://images.pexels.com/photos/30557056/pexels-photo-30557056/free-photo-of-retrato-de-mujer-con-cabello-rojo-en-traje-negro.jpeg','https://images.pexels.com/photos/15146363/pexels-photo-15146363/free-photo-of-moda-mujer-modelo-maqueta.jpeg', 'https://images.pexels.com/photos/10760395/pexels-photo-10760395.jpeg','https://images.pexels.com/photos/19970756/pexels-photo-19970756/free-photo-of-fotografia-de-estudio-de-una-mujer-joven-con-un-traje-negro-de-moda.jpeg' ]}
+private products = [{id_product: 1, name: "Vestido elegante", category: "Vestidos", 
+  description: '', price: 20, colors: ["#007BFF", "#DC3545", "#28A745"], sizes: ["S", "M", "L", "XL"] ,
+  composition: '', garment_care: '', 
+  image_main: 'https://images.pexels.com/photos/2173357/pexels-photo-2173357.jpeg', stock: 1},
+{id_product: 2, name: "Conjunto", category: "Pantalones", 
+  description: '', price: 40, colors: ["Amarillo", "Verde", "Azul"], sizes: ["S", "M", "L", "XL"] , 
+  composition: '', garment_care: '',
+  image_main:'https://images.pexels.com/photos/7778880/pexels-photo-7778880.jpeg', stock: 1},
+
 ]
   constructor() { }
 
@@ -19,4 +24,11 @@ private products = [{id_product: 1, stock: 3, name: "Vestido elegante", price: 2
   getProductById(id: number) {
     return this.products.find(product => product.id_product === id);
   }
+
+  getCategories() {
+    const categories = [...new Set(this.products.map(product => product.category))]; // Elimina duplicados
+    console.log('Categorías generadas:', categories); // Verifica si esto devuelve datos
+    return categories;
+  }
+  
 }

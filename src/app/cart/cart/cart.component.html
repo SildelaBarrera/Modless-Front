@@ -10,7 +10,7 @@
   <!-- Lista de productos en el carrito -->
   <div *ngIf="cartItems.length > 0">
     <div class="cart-item" *ngFor="let item of cartItems">
-      <img [src]="item.images[0]" [alt]="item.name" class="product-image" />
+      <img [src]="item.image_main" [alt]="item.name" class="product-image" />
 
       <div class="product-info">
         <h3>{{ item.name }}</h3>

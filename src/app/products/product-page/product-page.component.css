@@ -1,7 +1,7 @@
 .contenedor{
     border: blue 3px solid;
     height: 100vh;
-    width: 100vw;
+    width: 98vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -28,15 +28,18 @@
     height: 100%;
     width: 80%;
     display: flex;
-    background-color: #93a3b3;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #6786a5;
 }
 .principal{
     height: 550px;
     width: 40%;
     border: rgb(167, 67, 84) 2px solid;
     display: flex;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
+    
 }
 .img-principal{
 height: 450px;
@@ -45,41 +48,79 @@ height: 450px;
     width: 60%;
     border: orange 2px solid;
     display: flex;  
-}
-.properties{
-    display:flex;
-    flex-direction: column;
-}
-.title{
-    font-family: "Montserrat", serif;
-    font-optical-sizing: auto;
-    font-weight: weight;
-    font-style: normal;
-    font-size: large;
+    justify-content: space-around;
+    align-items: center;
 }
 .images{
-    height: 550px;
+    height: 100%;
     border: blue 2px solid;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: start;
 }
-.photo{
-    /* border: pink 2px solid; */
-    
-}
-.border-primary {
-    border: 1px solid #6c8198 !important; /* Azul de Bootstrap */
-  }
-  
-  .img-thumbnail:hover {
+.img-thumbnail:hover {
     transform: scale(1.1); /* Ampliar al pasar el ratón */
     transition: transform 0.2s;
   }
+.properties{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height:max-content;
+    border: rgb(197, 60, 108) solid 2px;
+}
+.title{
+    font-family: "Montserrat", serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+    font-size: large;   
+}
+
   .success-message {
     margin-top: 10px;
     color: rgb(39, 39, 39);
     animation: fadeInOut 3s ease-in-out;
   }
+  .product-detail-container {
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+  }
   
+  /* Estilo para la sección de selección de color */
+  .color-selector {
+    margin-top: 20px;
+  }
+  
+  .color-selector p {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  /* Contenedor para las opciones de color */
+  .color-options {
+    display: flex;
+    gap: 10px;
+  }
+  
+  /* Cada opción de color */
+  .color-option {
+    cursor: pointer;
+  }
+  
+  /* Círculo de color */
+  .color-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease;
+  }
+  
+  /* Resaltar la opción seleccionada */
+  .color-option.selected .color-circle {
+    border-color: #2a2a2a;
+  }

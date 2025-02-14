@@ -12,9 +12,3 @@ export const routes: Routes = [
     {path: "product/:id", title: "Producto", component:ProductPageComponent},
     {path: "cart", title: 'Carrito', component: CartComponent}
 ];
-
-// @NgModule({
-//     imports: [RouterModule.forRoot(routes)],
-//     exports: [RouterModule]
-//   })
-//   export class AppRoutingModule { }

@@ -8,6 +8,8 @@
     position: fixed;
     top: 0px;
     left: 0px;
+    bottom: 0px;
+    background-color: rgb(27, 27, 27);
     transition: background-color 0.3s ease;
 }
 .container-fluid{
@@ -31,3 +33,6 @@
     border: none;
     font-size: small;
 } 
+.dropdown-item{
+    color: wheat;
+}

@@ -1,31 +1,90 @@
-.contenedor{
-    border: blue 3px solid;
-    height: fit-content;
-    width: 75%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    font-family: "Montserrat", serif;
-    font-optical-sizing: auto;
-    font-weight: weight;
-    font-style: normal; 
+.product-list-container {
+  border: blue 3px solid;
+  height: fit-content;
+  width:76%;
+  margin: 0 auto;
+  font-family: 'Montserrat', sans-serif;
+  background: #f9f9f9;
 }
-.products{
-    border: rgb(65, 50, 164) 2px solid;
-    margin: 20px;
-    height: 55%;
-    width: 300px;
+.product-list-brand{
+  height: 15vh;
+  width: 100%;
+  border: violet 2px solid;
+}
+/* Título de la página */
+.product-list-title {
+  text-align: center;
+  margin: 30px;
+  font-size: 1.5rem;
+  color: #333;
+}
 
+/* Grid de productos: 3 columnas fijas */
+.product-grid {
+  display: grid;
+  border: orange solid 2px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  margin:15px;
+  align-content: center;
+  gap: 60px;
 }
-.card{ 
-    border: red solid 2px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+/* Tarjeta del producto */
+.product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  overflow: hidden;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  transition: transform 0.3s ease;
 }
-.photo{
-    height: 80%;
-    border: green 2px solid;
+
+/* .product-card:hover {
+  transform: translateY(-5px);
+} */
+
+/* Contenedor de la imagen */
+.image-wrapper {
+  border: red 2px solid;
+  width:100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.image-wrapper img {
+  border: green 2px solid;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.image-wrapper img:hover {
+  transform: scale(1.1);
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+/* Detalles del producto */
+.product-details {
+  border: blue 2px solid;
+  width: 100%;
+  padding-top: 10px;
+  display: flex;
+  align-items: start;
+}
+
+.product-details h3 {
+  margin-right: 10px;
+  font-size: 10pt;
+  color: #333;
+}
+
+/* Precio del producto */
+.price {
+  /* margin: 10px; */
+  font-size: 9pt;
+  color: #5f5e5d;
 }

@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class ProductPageComponent implements OnInit {
   product: any;
+  colors: string[] = [];
   selectedImage: string = '';
   selectedColor: string = '';
   selectedSize: string = '';
@@ -25,7 +26,7 @@ export class ProductPageComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private productService: ProductsService,
-    private cartService: CartService
+    private cartService: CartService,
   ) {}
 
   ngOnInit(): void {
@@ -37,7 +38,8 @@ export class ProductPageComponent implements OnInit {
     
     if (this.product) {
       this.selectedImage = this.product.images ? this.product.images[0] : '';
-      this.selectedColor = this.product.colors && this.product.colors.length > 0 ? this.product.colors[0] : '';
+      this.colors = this.product.colors;
+      this.selectedColor = this.colors[0];
       this.selectedSize = this.product.sizes && this.product.sizes.length > 0 ? this.product.sizes[0] : '';
     }
   }
